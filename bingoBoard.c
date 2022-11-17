@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include "bingoBoard.h"
 
-#define BINGONUM_HOLE
+#define BINGONUM_HOLE -1
 
-int bingoBoard[N_SIZE][N_SIZE];
-
+static int bingoBoard[N_SIZE][N_SIZE];
+static int numberStatus[N_SIZE*N_SIZE];
 
 void bingo_init(void)
 {
@@ -14,7 +14,17 @@ void bingo_init(void)
 	for(i=0;i<N_SIZE;i++)
 		for(j=0;j<N_SIZE;j++)
 		{
-			bingoBoard[i][j] = cnt++;			
+			if (cnt == 15)
+			{
+				bingoBoard[i][j] = BINGONUM_HOLE;
+				numberStatus[cnt-1] = BINGONUM_HOLE;
+				cnt++;
+			}
+			else
+			{
+				numberStatus[cnt-1] =  i*N_SIZE + j;
+				bingoBoard[i][j]=cnt++;
+			}			
 		}
 }
 void bingo_print(void)
@@ -23,6 +33,7 @@ void bingo_print(void)
 	printf("------------------------------\n");
 	for(i=0;i<N_SIZE;i++){
 		for(j=0;j<N_SIZE; j++){
+			
 			if(bingoBoard[i][j] == BINGONUM_HOLE)
 				printf("X\t");
 			else
@@ -34,6 +45,9 @@ void bingo_print(void)
 	printf("------------------------------\n");
 }
 void bingo_inputNumber(int sel){
+	index = numberStatus[sel-1]/ N_SIZE;
+	index = numberStatus[sel-1]%N_SIZE;
+	
 	
 	
 }
