@@ -18,11 +18,12 @@ int main(int argc, char *argv[]) {
 	
 	//game 
 	bingo_init();
+	bingo_print();
 	bingo_inputNum(5);
 	bingo_print();
-	bingo_inputNum(12);
+	bingo_inputNum(12);	
 	bingo_print();
-	
+
 	//initialize bingo board
 	/* while ·Î ¹Ýº¹ ( game is no end)
 	 printf( bingo board)
