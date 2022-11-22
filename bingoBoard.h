@@ -1,6 +1,11 @@
 #define N_SIZE     5
+#define BINGO_NUMSTATUS_ABSENT   -1
+#define BINGO_NUMSTATUS_PRESENT   0
+
 
 void bingo_init(void);
 void bingo_print(void);
 void bingo_inputNumber(int sel);
 int bingo_countCompletedLine(void);
+int get_number(void);
+

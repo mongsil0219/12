@@ -6,6 +6,14 @@
 static int bingoBoard[N_SIZE][N_SIZE];
 static int numberStatus[N_SIZE*N_SIZE];
 
+int bingo_checkNum(int selNum)
+{
+	if (numberStatus[selNum] == BINGONUM_HOLE )
+	return BINGO_NUMSTATUS_ABSENT;
+	
+	
+}
+
 void bingo_init(void)
 {
 	int i,j;
